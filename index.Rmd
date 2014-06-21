@@ -1,0 +1,53 @@
+---
+title       : Tic-Tac-Toe EndGame Learner
+subtitle    : 
+author      : Edanaks
+job         : For the Coursera Data Science class assignment
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## What this app does
+
+1. Consider a game of Tic-Tac-Toe, where X has gone first.
+2. Given the end configuration of the board, we want the computer to guess if X has won or not.
+3. Of course, we could just "feed the logic" into the computer, and ask it to check
+if any row or column or a diagonal is filled with only X's.
+4. But we want to do this by making the computer learn the possible outcomes of end configurations.
+5. In other words, we want the computer to figure out the logic mentioned in point (3) for itself.
+
+(Note: If you have not played Tic-Tac-Toe before, 
+or know it by some other name, see `http://en.wikipedia.org/wiki/Tic-tac-toe`.)
+
+--- .class #id 
+
+## How this app does it
+
+We use the following data:
+```{r}
+ttt <- read.table(
+  "http://archive.ics.uci.edu/ml/machine-learning-databases/tic-tac-toe/tic-tac-toe.data",sep=',')
+head(ttt)
+```
+The documentation for the data could be found at:
+`
+http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
+`
+Thanks to the creators of this data for making it public!
+
+--- .class #id 
+
+## Machine learning methods used
+
+1. We use 2 methods: 
+  * Random Forests
+  * Decision Trees
+2. Of course, random forests perform better, and in the application website, we
+provide some examples where decision trees give a wrong answer, while random forests do a fine job.
+3. Random Forests average over a large set of decision trees and are more accurate in this case.
+
+___Have fun playing around with the application!___
+

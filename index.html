@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic-Tac-Toe EndGame Learner</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Tic-Tac-Toe EndGame Learner">
+  <meta name="author" content="Edanaks">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Tic-Tac-Toe EndGame Learner</h1>
+    <h2></h2>
+    <p>Edanaks<br/>For the Coursera Data Science class assignment</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What this app does</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Consider a game of Tic-Tac-Toe, where X has gone first.</li>
+<li>Given the end configuration of the board, we want the computer to guess if X has won or not.</li>
+<li>Of course, we could just &quot;feed the logic&quot; into the computer, and ask it to check
+if any row or column or a diagonal is filled with only X&#39;s.</li>
+<li>But we want to do this by making the computer learn the possible outcomes of end configurations.</li>
+<li>In other words, we want the computer to figure out the logic mentioned in point (3) for itself.</li>
+</ol>
+
+<p>(Note: If you have not played Tic-Tac-Toe before, 
+or know it by some other name, see <code>http://en.wikipedia.org/wiki/Tic-tac-toe</code>.)</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How this app does it</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We use the following data:</p>
+
+<pre><code class="r">ttt &lt;- read.table(
+  &quot;http://archive.ics.uci.edu/ml/machine-learning-databases/tic-tac-toe/tic-tac-toe.data&quot;,sep=&#39;,&#39;)
+head(ttt)
+</code></pre>
+
+<pre><code>##   V1 V2 V3 V4 V5 V6 V7 V8 V9      V10
+## 1  x  x  x  x  o  o  x  o  o positive
+## 2  x  x  x  x  o  o  o  x  o positive
+## 3  x  x  x  x  o  o  o  o  x positive
+## 4  x  x  x  x  o  o  o  b  b positive
+## 5  x  x  x  x  o  o  b  o  b positive
+## 6  x  x  x  x  o  o  b  b  o positive
+</code></pre>
+
+<p>The documentation for the data could be found at:
+<code>
+http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
+</code>
+Thanks to the creators of this data for making it public!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Machine learning methods used</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>We use 2 methods: 
+
+<ul>
+<li>Random Forests</li>
+<li>Decision Trees</li>
+</ul></li>
+<li>Of course, random forests perform better, and in the application website, we
+provide some examples where decision trees give a wrong answer, while random forests do a fine job.</li>
+<li>Random Forests average over a large set of decision trees and are more accurate in this case.</li>
+</ol>
+
+<p><strong><em>Have fun playing around with the application!</em></strong></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What this app does'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How this app does it'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Machine learning methods used'>
+         3
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
